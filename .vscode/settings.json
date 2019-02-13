@@ -1,0 +1,13 @@
+{
+    "C_Cpp.default.cppStandard": "c++17",
+    "files.associations": {
+        "*.ih": "cpp",
+        "istream": "cpp",
+        "*.cc": "cpp",
+        "variant": "cpp",
+        "iosfwd": "cpp",
+        "string": "cpp",
+        "regex": "cpp",
+        "iostream": "cpp"
+    }
+}
