@@ -9,39 +9,39 @@ void visualize(void)
 
 	if (draw_smoke)
 	{
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	for (j = 0; j < DIM - 1; j++)			//draw smoke
-	{
-		glBegin(GL_TRIANGLE_STRIP);
-
-		i = 0;
-		px = wn + (fftw_real)i * wn;
-		py = hn + (fftw_real)j * hn;
-		idx = (j * DIM) + i;
-		glColor3f(rho[idx],rho[idx],rho[idx]);
-		glVertex2f(px,py);
-
-		for (i = 0; i < DIM - 1; i++)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		for (j = 0; j < DIM - 1; j++)			//draw smoke
 		{
-			px = wn + (fftw_real)i * wn;
-			py = hn + (fftw_real)(j + 1) * hn;
-			idx = ((j + 1) * DIM) + i;
-			set_colormap(rho[idx]);
-			glVertex2f(px, py);
-			px = wn + (fftw_real)(i + 1) * wn;
-			py = hn + (fftw_real)j * hn;
-			idx = (j * DIM) + (i + 1);
-			set_colormap(rho[idx]);
-			glVertex2f(px, py);
-		}
+			glBegin(GL_TRIANGLE_STRIP);
 
-		px = wn + (fftw_real)(DIM - 1) * wn;
-		py = hn + (fftw_real)(j + 1) * hn;
-		idx = ((j + 1) * DIM) + (DIM - 1);
-		set_colormap(rho[idx]);
-		glVertex2f(px, py);
-		glEnd();
-	}
+			i = 0;
+			px = wn + (fftw_real)i * wn;
+			py = hn + (fftw_real)j * hn;
+			idx = (j * DIM) + i;
+			glColor3f(rho[idx],rho[idx],rho[idx]);
+			glVertex2f(px,py);
+
+			for (i = 0; i < DIM - 1; i++)
+			{
+				px = wn + (fftw_real)i * wn;
+				py = hn + (fftw_real)(j + 1) * hn;
+				idx = ((j + 1) * DIM) + i;
+				set_colormap(rho[idx]);
+				glVertex2f(px, py);
+				px = wn + (fftw_real)(i + 1) * wn;
+				py = hn + (fftw_real)j * hn;
+				idx = (j * DIM) + (i + 1);
+				set_colormap(rho[idx]);
+				glVertex2f(px, py);
+			}
+
+			px = wn + (fftw_real)(DIM - 1) * wn;
+			py = hn + (fftw_real)(j + 1) * hn;
+			idx = ((j + 1) * DIM) + (DIM - 1);
+			set_colormap(rho[idx]);
+			glVertex2f(px, py);
+			glEnd();
+		}
 	}
 
 	if (draw_vecs)

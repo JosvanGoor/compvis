@@ -162,7 +162,7 @@
    if your linker converts identifiers to lower-case followed by an
    underscore, you would do: #define F77_FUNC_(name,NAME) name ## _
 */
-#define F77_FUNC_(name,NAME) name ## _
+/* #undef F77_FUNC_ */
 
 /* The following symbols control how MPI_Comm data structures are
    translated between Fortran and C for the fftw_mpi wrappers.  See
